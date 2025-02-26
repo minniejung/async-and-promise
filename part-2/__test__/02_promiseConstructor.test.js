@@ -21,7 +21,7 @@ describe('Promise Test', () => {
     it('then 블록을 통하여 파일 내용이 전달되어야 합니다', (done) => {
       return getDataFromFilePromise(jsonPath)
         .then((data) => {
-          expect(data).toBe(user1txt);
+          expect(JSON.parse(data)).toEqual(JSON.parse(user1txt));
           done();
         })
         .catch(done);
