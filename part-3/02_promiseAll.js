@@ -6,7 +6,7 @@ function getNewsAndWeatherAll() {
   return Promise.all([
     fetch(newsURL).then((res) => res.json()),
     fetch(weatherURL).then((res) => res.json()),
-  ]).then(([news, weather]) => ({ news, weather }));
+  ]).then(([news, weather]) => ({ news: news.data, weather }));
 }
 
 if (typeof window === "undefined") {
